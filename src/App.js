@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<HomePage />}/>
         <Route path="/auth" element={<AuthPage />}/>
         <Route path="/profile" element={<UserProfile />}/>
+        <Route path="*" element={<p>Nothing found, go away</p>}/>
       </Routes>
     </Layout>
   );
