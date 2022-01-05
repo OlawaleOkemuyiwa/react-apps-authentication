@@ -29,7 +29,7 @@ const AuthForm = () => {
     setIsLoading(true);
 
     let url;
-    if(isLogin) {
+    if(isLogin) {  //if Login or signup (the same logic applies to both just dfferent URLs)
       url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC10myv-0cDjhwdwT_i6T8URC3xUxfw6x8';
     } else {
       url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC10myv-0cDjhwdwT_i6T8URC3xUxfw6x8';
