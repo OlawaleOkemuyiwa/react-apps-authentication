@@ -53,8 +53,10 @@ const AuthForm = () => {
       const data = await response.json();  
       const { idToken, expiresIn } = data;      //expiresIn is the time the login section expires as specified by firebase which is '3600' or 60mins or 1hr 
       
-      if(response.ok) {                     
-        authCtx.login(idToken, expiresIn);
+      if(response.ok) {      
+        const expirationTimestamp = new Date().getTime() + (parseInt(expiresIn) * 1000);
+        const expirationTimeDateString = new Date(expirationTimestamp).toISOString();  
+        authCtx.login(idToken, expirationTimeDateString);
         navigate('/', {replace: true});
       } else {
         let errorMessage = 'Authentication failed';
