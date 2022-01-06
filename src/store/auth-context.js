@@ -12,7 +12,7 @@ export const AuthContext = React.createContext({
 const calRemainingTime = expirationTime => {
   const currentTimestamp = new Date().getTime();                                       
   const expirationTimestamp = new Date(expirationTime).getTime();     
-  return expirationTimestamp - currentTimestamp;
+  return expirationTimestamp - currentTimestamp;    //in milliseconds
 }
 
 let logoutTimer; 
@@ -41,7 +41,7 @@ export const AuthContextProvider = props => {
   let initialToken = null;
   if (tokenData) {
     initialToken = tokenData.token;
-    //logoutTimer would have been implemented here but since logoutHandler can't be accessed here it is set in useEffect down after logoutHandler as been initialized.
+    //logoutTimer would have been implemented here but since logoutHandler can't be accessed here it is set in useEffect down after logoutHandler has been initialized.
   }
   const [token, setToken] = useState(initialToken); 
 
